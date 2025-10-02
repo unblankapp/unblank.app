@@ -430,6 +430,11 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     background-color: #FEF8EE;
 }
 
+.exemple-image {
+    width: 800px;
+    height: auto;
+}
+
 .email-button:hover {
     transform: none;
     box-shadow: none;
