@@ -430,8 +430,25 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     background-color: #FEF8EE;
 }
 
+@media (max-width: 768px) {
+    .exemple {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 .exemple-image {
     width: 800px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .exemple-image {
+        margin-top: 32px;
+    }
 }
 
 .email-button:hover {
@@ -2029,4 +2046,3 @@ html {
     background-color: #ff4444;
     color: white;
 }
-
