@@ -10,6 +10,7 @@ body {
     background-color: #FEF8EE;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden; /* éviter le scroll horizontal accidentel */
 }
 
 .container {
@@ -19,6 +20,33 @@ body {
     max-width: 1840px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.container-how {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1840px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 80px;
+}
+
+@media (max-width: 768px) {
+    .container-how {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        gap: 20px;
+    }
+}
+
+.container-left {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Typographie */
@@ -38,7 +66,13 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 .section-title {
     font-size: 56px;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 62px;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        margin: 0;
+    }
 }
 
 /* Header et Navigation */
@@ -62,8 +96,8 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    max-width: 100%;
-    margin: 0 auto;
+    min-width: 100%;
+
 }
 
 .logo img {
@@ -101,7 +135,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     background-color: #333;
     margin: 3px 0;
     transition: 0.3s;
-    border-radius: 2px;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -122,7 +155,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     color: rgb(0, 0, 0);
     border: 2px solid #000;
     padding: 12px 24px;
-    border-radius: 8px;
     font-family: 'Heebo', sans-serif;
     font-weight: 600;
     font-size: 1rem;
@@ -186,16 +218,20 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
+    flex-direction: column; /* empiler les deux containers */
     align-items: center;
+    justify-content: center; /* centrer verticalement dans le viewport */
     position: relative;
+    margin-top: 40px;
 }
 
 .hero .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .hero-wrapper {
@@ -230,6 +266,7 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 }
 
 .hero-tagline {
+    max-width: 800px;
     line-height: 1.3;
 }
     
@@ -242,19 +279,39 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 
 /* Email signup */
 .hero-email-signup {
-    margin-top: 2rem;
-    margin-left: 16px;
-    margin-right: 16px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Area Inktrap', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
+    width: 100%;
+}
+
+.title-input {
+    margin-bottom: 12px;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .title-input {
+        line-height: 1.1;
+        font-size: 27px;
+        text-align: center;
+        margin-top: 32px;
+        margin-bottom: 12px;
+    }
 }
 
 @media (max-width: 768px) {
     .hero-email-signup {
         width: 100%;
         margin: 20px 0;
-        display: block;
-
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -306,7 +363,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     height: 66px;
     background-color: white;
     border: 2px solid #000;
-    border-radius: 14px;
     overflow: hidden;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
     padding: 4px;
@@ -353,22 +409,25 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 .email-button {
     border: 2px solid #000;
     border-left: 2px solid #000;
-    border-radius: 12;
     margin: 0;
     box-shadow: none;
     white-space: nowrap;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
     .email-button {
         padding: 10px 16px;
         font-size: 0.8rem;
         white-space: nowrap;
         min-width: fit-content;
         border-left: 2px solid #000;
-        border-top: none;
-        border-radius: 0 8px 8px 0;
     }
+}
+
+.exemple {
+    margin-top: 100px;
+    margin-bottom: 180px;
+    background-color: #FEF8EE;
 }
 
 .email-button:hover {
@@ -381,9 +440,9 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 }
 
 .hero-image img {
-    max-width: 200%;
+    max-width: 100%;
     height: auto;
-    transform: scale(1.5);
+    transform: scale(1);
 }
 
 /* Services Section */
@@ -395,7 +454,7 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 
 @media (min-width: 1920px) {
     .services {
-        margin-bottom: 80px;
+        margin-bottom: 350px;
     }
 }
 
@@ -405,15 +464,20 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     gap: 2rem;
 }
 
+@media (max-width: 768px) {
+    .services-grid {
+        margin-top: 32px;
+    }
+}
+
 .service-card {
     border: 2px solid #000;
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
-    padding: 2rem;
-    border-radius: 12px;
+    padding: 1rem;
     text-align: center;
     transition: transform 0.3s ease;
     background-color: white;
-    max-width: 400px;
+    max-width: 320px;
     text-align: left;
 }
 
@@ -444,7 +508,8 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 640px;
+    text-align: center;
+    max-width: 900px;
     font-size: 1.2rem;
     margin-bottom: 2rem;
     margin-top: 10px;
@@ -585,7 +650,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     border: 3px solid #000;
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
     padding: 2rem;
-    border-radius: 12px;
     text-align: left;
     transition: transform 0.3s ease;
 }
@@ -611,15 +675,23 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 
 /* How It Works Section */
 .how-it-works {
-    padding: 180px 0;
+    padding: 150px 0;
+    background-color: white;
     /*border-top: 10px solid black;*/
 }
 
 @media (max-width: 768px) {
     .how-it-works {
         padding: 80px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
+
+
 }
+
 
 /* Recruitment Section */
 .recruitment {
@@ -668,7 +740,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     border: 3px solid #000;
     box-shadow: 12px 12px 0px rgba(0, 0, 0, 1), 0 0 0 1px rgba(255, 80, 111, 0.1);
     padding: 3rem;
-    border-radius: 16px;
     text-align: left;
     transition: all 0.3s ease;
     width: 100%;
@@ -683,7 +754,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     left: 0;
     right: 0;
     height: 4px;
-    border-radius: 16px 16px 0 0;
 }
 
 .recruitment-card-header {
@@ -707,7 +777,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     width: 60px;
     height: 3px;
     background: linear-gradient(90deg, #FF506F, #FF6B8A);
-    border-radius: 2px;
 }
 
 .recruitment-card-body {
@@ -728,7 +797,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     margin-bottom: 2.5rem;
     padding: 2rem;
     background: rgba(255, 80, 111, 0.05);
-    border-radius: 12px;
     border: 1px solid rgba(255, 80, 111, 0.1);
 }
 
@@ -758,7 +826,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     width: 8px;
     height: 8px;
     background: #FF506F;
-    border-radius: 50%;
 }
 
 .detail-value {
@@ -766,7 +833,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     font-weight: 500;
     background: white;
     padding: 0.3rem 0.8rem;
-    border-radius: 6px;
     border: 1px solid #e0e0e0;
 }
 
@@ -812,7 +878,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     color: #555;
     line-height: 1.5;
     background: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.2s ease;
 }
@@ -847,12 +912,12 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     min-width: 300px;
 }
 
-.how-it-works-grid {
+/*.how-it-works-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     margin-top: 3rem;
-}
+}*/
 
 @media (max-width: 768px) {
     .how-it-works-card {
@@ -864,13 +929,25 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 
 
 .how-it-works-card {
-    background-color: white;
-    border: 3px solid #000;
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
-    padding: 2rem;
-    border-radius: 12px;
+    /*background-color: white;*/
+    /*border: 3px solid #000;*/
+    /*box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);*/
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 1rem;
     text-align: left;
     transition: transform 0.3s ease;
+    max-width: 600px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .how-it-works-card {
+        padding: 10px;
+    }
 }
 
 
@@ -878,6 +955,19 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     width: 56px;
     height: 56px;
 }
+
+@media (max-width: 768px) {
+    .how-it-works-icon {
+        width: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-right img{
+        width: 100%;
+    }
+}
+
 
 .how-it-works-card h3 {
     font-family: 'Area Inktrap', sans-serif;
@@ -939,7 +1029,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     width: 100%;
     padding: 12px 16px;
     border: 2px solid #ddd;
-    border-radius: 8px;
     font-family: 'Heebo', sans-serif;
     font-size: 1rem;
     transition: border-color 0.3s ease;
@@ -1011,7 +1100,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     height: 66px;
     background-color: white;
     border: 2px solid #000;
-    border-radius: 14px;
     overflow: hidden;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
     padding: 4px;
@@ -1043,7 +1131,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 }
 
 .footer-email-button {
-    border-radius: 12px;
     margin: 0;
     box-shadow: none;
     white-space: nowrap;
@@ -1119,9 +1206,19 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     .footer-legal {
         justify-content: flex-start;
     }
+
+    .hero-image img {
+        display: none;
+    }
+
+    .feature-card-icon {
+        width: 36px;
+    }
+    
 }
 
-@media (max-width: 1400px) {
+
+@media (min-width: 1400px) {
     .hero-wrapper {
         gap: 1rem;
     }
@@ -1141,7 +1238,7 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     }
     
     .hero-image img {
-        transform: scale(1.3);
+        transform: scale(1.2);
     }
     
     .feature-card {
@@ -1165,7 +1262,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     
     .how-it-works-card {
         padding: 1.5rem;
-        border: 2px solid #000;
     }
     
     .how-it-works-icon {
@@ -1207,7 +1303,7 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     }
     
     .hero-image img {
-        transform: scale(1.5);
+        transform: scale(1.3);
     }
     
     .hero-content {
@@ -1255,7 +1351,7 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     }
     
     .hero-image img {
-        transform: scale(1.6);
+        transform: scale(1.4);
     }
     
     .hero-content {
@@ -1365,7 +1461,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     .email-button {
         border-left: none;
         border-top: 2px solid #000;
-        border-radius: 0 0 8px 8px;
     }
     
     .contact-content {
@@ -1443,7 +1538,7 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
     }
     
     .hero-title {
-        font-size: 36px;
+        font-size: 42px;
         text-align: left;
     }
     
@@ -1482,7 +1577,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
         font-size: 0.8rem;
         min-width: fit-content;
         border: 2px solid #000;
-        border-radius: 8px;
     }
     
     .hero-buttons {
@@ -1745,7 +1839,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
         width: auto;
         border-left: 2px solid #000;
         border-top: none;
-        border-radius: 0 8px 8px 0;
         padding: 12px 16px;
         font-size: 0.95rem;
     }
@@ -1863,7 +1956,6 @@ html {
     background-color: white;
     border: 3px solid #000;
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
-    border-radius: 12px;
     padding: 2rem;
     text-align: center;
     max-width: 400px;
@@ -1907,7 +1999,6 @@ html {
     color: #000;
     border: 2px solid #000;
     padding: 12px 24px;
-    border-radius: 8px;
     font-family: 'Heebo', sans-serif;
     font-weight: 600;
     font-size: 1rem;
