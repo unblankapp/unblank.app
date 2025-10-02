@@ -432,7 +432,6 @@ p, li, .hero-description, .services-description, .feature-card p, .how-it-works-
 
 .exemple-image {
     width: 800px;
-    height: auto;
 }
 
 .email-button:hover {
@@ -2030,3 +2029,4 @@ html {
     background-color: #ff4444;
     color: white;
 }
+
